@@ -1,0 +1,129 @@
+(djangoEnv) C:\Users\Owner\OneDrive\Desktop\Dojo_Assignments\Python\Django\fundamentals>django-admin startproject DojoNinjaShell
+
+(djangoEnv) C:\Users\Owner\OneDrive\Desktop\Dojo_Assignments\Python\Django\fundamentals>dir
+ Volume in drive C is System Reserved
+ Volume Serial Number is 768C-1681
+
+ Directory of C:\Users\Owner\OneDrive\Desktop\Dojo_Assignments\Python\Django\fundamentals
+
+12/09/2020  08:43 PM    <DIR>          .
+12/09/2020  08:43 PM    <DIR>          ..
+12/06/2020  12:00 AM    <DIR>          CheckerBoard
+12/08/2020  09:59 PM    <DIR>          counter
+12/08/2020  07:12 PM            16,608 counter.zip
+12/09/2020  08:43 PM    <DIR>          DojoNinjaShell
+12/09/2020  01:24 PM    <DIR>          dojoSurvey
+12/08/2020  04:50 PM    <DIR>          GreatNumberGame
+12/06/2020  12:51 AM    <DIR>          Project1
+12/06/2020  09:44 PM    <DIR>          Project2
+12/08/2020  10:18 PM    <DIR>          TimeDisplay
+12/09/2020  12:26 AM            16,191 TimeDisplay.zip
+12/09/2020  08:35 PM    <DIR>          usershell
+               2 File(s)         32,799 bytes
+              11 Dir(s)  376,054,104,064 bytes free
+
+(djangoEnv) C:\Users\Owner\OneDrive\Desktop\Dojo_Assignments\Python\Django\fundamentals>cd dojoninjashell
+
+(djangoEnv) C:\Users\Owner\OneDrive\Desktop\Dojo_Assignments\Python\Django\fundamentals\DojoNinjaShell>django-admin startapp application
+
+(djangoEnv) C:\Users\Owner\OneDrive\Desktop\Dojo_Assignments\Python\Django\fundamentals\DojoNinjaShell>dir
+ Volume in drive C is System Reserved
+ Volume Serial Number is 768C-1681
+
+ Directory of C:\Users\Owner\OneDrive\Desktop\Dojo_Assignments\Python\Django\fundamentals\DojoNinjaShell
+
+12/09/2020  08:43 PM    <DIR>          .
+12/09/2020  08:43 PM    <DIR>          ..
+12/09/2020  08:43 PM    <DIR>          application
+12/09/2020  08:43 PM    <DIR>          DojoNinjaShell
+12/09/2020  08:43 PM               655 manage.py
+               1 File(s)            655 bytes
+               4 Dir(s)  376,054,530,048 bytes free
+
+(djangoEnv) C:\Users\Owner\OneDrive\Desktop\Dojo_Assignments\Python\Django\fundamentals\DojoNinjaShell>code .
+
+(djangoEnv) C:\Users\Owner\OneDrive\Desktop\Dojo_Assignments\Python\Django\fundamentals\DojoNinjaShell>python manage.py shell
+Python 3.9.0 (tags/v3.9.0:9cf6752, Oct  5 2020, 15:34:40) [MSC v.1927 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> exit()
+
+(djangoEnv) C:\Users\Owner\OneDrive\Desktop\Dojo_Assignments\Python\Django\fundamentals\DojoNinjaShell>python manage.py makemigrations
+No changes detected
+
+(djangoEnv) C:\Users\Owner\OneDrive\Desktop\Dojo_Assignments\Python\Django\fundamentals\DojoNinjaShell>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying sessions.0001_initial... OK
+
+(djangoEnv) C:\Users\Owner\OneDrive\Desktop\Dojo_Assignments\Python\Django\fundamentals\DojoNinjaShell>python manage.py shell
+Python 3.9.0 (tags/v3.9.0:9cf6752, Oct  5 2020, 15:34:40) [MSC v.1927 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> exit()
+
+(djangoEnv) C:\Users\Owner\OneDrive\Desktop\Dojo_Assignments\Python\Django\fundamentals\DojoNinjaShell>python manage.py makemigrations
+Migrations for 'application':
+  application\migrations\0001_initial.py
+    - Create model Dojo
+    - Create model Ninjas
+
+(djangoEnv) C:\Users\Owner\OneDrive\Desktop\Dojo_Assignments\Python\Django\fundamentals\DojoNinjaShell>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, application, auth, contenttypes, sessions
+Running migrations:
+  Applying application.0001_initial... OK
+
+(djangoEnv) C:\Users\Owner\OneDrive\Desktop\Dojo_Assignments\Python\Django\fundamentals\DojoNinjaShell>python manage.py shell
+
+>>> from application.models import*
+>>> Dojo
+<class 'application.models.Dojo'>
+>>> Ninjas
+<class 'application.models.Ninjas'>
+>>> c.save()
+
+>>> Dojo.objects.all()
+<QuerySet []>
+
+>>> Dojo.objects.create(name="Zach",city="Denver",state="CO")
+<Dojo: Dojo object (1)>
+>>> Dojo.objects.create(name="Naomi",city="Denver",state="CO")
+<Dojo: Dojo object (2)>
+>>> Dojo.objects.create(name="Cathy",city="Flagstaff",state="AZ")
+<Dojo: Dojo object (3)>
+
+>>> c=Dojo.objects.get(id=1)
+>>> c.delete()
+(1, {'application.Ninjas': 0, 'application.Dojo': 1})
+>>> c=Dojo.objects.get(id=2)
+>>> c.delete()
+(1, {'application.Ninjas': 0, 'application.Dojo': 1})
+>>> c=Dojo.objects.get(id=3)
+>>> c.delete()
+(1, {'application.Ninjas': 0, 'application.Dojo': 1})
+>>>
+>>> Dojo.objects.create(name="Len",city="Flagstaff",state="AZ")
+<Dojo: Dojo object (4)>
+>>> Dojo.objects.create(name="Jim",city="Ventura",state="CA")
+<Dojo: Dojo object (5)>
+>>> Dojo.objects.create(id=6)
+<Dojo: Dojo object (6)>
+>>>

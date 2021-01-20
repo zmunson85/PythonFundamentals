@@ -1,0 +1,29 @@
+>>> User.objects.all()
+<QuerySet [User: id:1 ZachMunson, User: id:2 BananaPancakes, User: id:3 JillBeverly]>
+>>> User.objects.all()
+<QuerySet [User: id:1 ZachMunson, User: id:2 BananaPancakes, User: id:3 JillBeverly]>
+>>> User.objects.last()
+User: id:3 JillBeverly
+>>> User.objects.first()
+User: id:1 ZachMunson
+>>> c=User.objects.get(id=3)
+>>> c.last_name="Pancakes"
+>>> c.save()
+>>> User.objects.all()
+<QuerySet [User: id:1 ZachMunson, User: id:2 BananaPancakes, User: id:3 JillPancakes]>
+>>> c=User.objects.get(id=2)
+>>> c.delete()
+(1, {'application.User': 1})
+>>> User.objects.all(0
+... User.objects.all()
+  File "<console>", line 2
+    User.objects.all()
+    ^
+SyntaxError: invalid syntax
+>>> User.objects.all()
+<QuerySet [User: id:1 ZachMunson, User: id:3 JillPancakes]>
+>>> User.objects.all().order_by("first_name")
+<QuerySet [User: id:3 JillPancakes, User: id:1 ZachMunson]>
+>>> User.objects.all().order_by("id")
+<QuerySet [User: id:1 ZachMunson, User: id:3 JillPancakes]>
+>>>

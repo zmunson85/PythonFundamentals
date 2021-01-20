@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<style>
+.title{
+        width: 706px;
+    }
+    .main{
+        margin-top: 50px;
+    }
+    button{
+        position: absolute;
+        left: 50%;
+    }
+    .goback{
+        margin: 30px;
+    }
+</style>
+
+<body>
+    <a class="d-flex justify-content-end goback" href="/shows">Go Back</a>
+    <div class="main">
+        <h1 class="text-center">Add a new show</h1>
+        <!-- <______begin validation _________> -->
+        {% if messages %}
+        <!-- <ul class="messages"></ul> -->
+            {% for message in messages %}
+                <p style= color:red class="{{message.tags}}">{{message}}</p>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form action="/shows/create" method="post">
+            {% csrf_token %}
+            <div class="container-md d-flex justify-content-center">
+                <div class="mb-3">
+                    <label class="form-label">Title</label>
+                    <input type="text" name="title" class="form-control title">
+                </div>
+            </div>
+            <div class="container-md d-flex justify-content-evenly">
+                <div class="mb-3">
+                    <label class="form-label">Network</label>
+                    <input type="text" name="network" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Release Date </label>
+                    <input type="date" name="date" class="form-control">
+                </div>
+            </div>
+            <div class="container-md d-flex justify-content-center">
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea name="description" class="form-control title"></textarea>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        height: 200px;
+        width: 200px;
+        background-color: rgb(23, 126, 23);
+        color: white;
+    }
+
+    .container{
+        padding-left: 200px;
+        
+    }
+</style>
+
+<body>
+    <div class="container">    
+        <h1>Welcome! Lets Play a Guessing Game. </h1>
+        <p>I am thinking of a number between 1 and 100</p>
+        <p>Guess The Number</p>
+        {% if 'text' in request.session %}
+        <div class="box" style="background-color: {{request.session.color}}">
+            {{request.session.text}}
+            {% if request.session.collor == "green" %}
+            <form action="guess_again" method="post">
+                {% csrf_token %}
+                <button type="submit">Play Again</button>
+            </form>
+            {% endif %}
+        </div>
+        {% endif %}
+        <br>
+        {% if request.session.color != "green" %}
+        <form action="check" method="post">
+            {% csrf_token %}
+            <input name="number">
+            <button type="submit">Submit</button>
+        </form>
+        {% endif %}
+    </div>
+</body>
+
+</html>

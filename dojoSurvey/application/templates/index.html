@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+
+</head>
+
+<body class="body">
+    <div class="container">
+        <div class="form">
+            <form action='/result' method='POST'>
+                {% csrf_token %}
+                <div class="Name">
+                    <label style="color:rgb(12, 5, 133);" >Name:</label><input type='text' name='name'>
+                </div>
+                <div>
+                    <label style="color: rgb(12, 5, 133);">Location</label>
+                    <select style="height: 30px;" name="dropdown">
+                        <option value="City 1">San Jose</option>
+                        <option value="City 2">Denver</option>
+                        <option value="City 3">Portland</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="color:rgb(12, 5, 133);">Pick Your Favorite Coding Language</label>
+                    <select name="dropdown">
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Python">Python</option>
+                        <option value="C#">C#</option>
+                    </select>
+                </div>
+                <div>
+                    <textarea name="comment" form="usrform">Leave A comment here...</textarea>
+                </div>
+                <div>
+                    <button style="color:rgb(12, 5, 133);" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

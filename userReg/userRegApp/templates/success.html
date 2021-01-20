@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Login</title>
+</head>
+
+<style>
+.btn{
+    color:black;
+    background-color: green;
+}
+</style>
+
+<body>
+    <div class="card">
+        <div class="card-header">Success!</div>
+        <div class="card-body">
+            <h5 class="card-title">Hello, {{user.first_name}}</h5>
+            <p class="card-text"> Add Your Favorite Book</p>
+            <a href="logout" style="margin-right: 5px;" class="btn btn-primary" type="submit" value="">LogOut</button>
+            <a href="/" class="btn btn-primary">Go back</a>
+        </div>
+        
+    </div>
+
+        
+</body>
+
+</html>

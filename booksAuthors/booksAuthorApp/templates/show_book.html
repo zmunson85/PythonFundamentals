@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<style>
+    #desc {
+        margin-right: 10px;
+    }
+
+    .blue {
+        margin-left: 10px;
+    }
+</style>
+
+<body>
+    <br>
+    <div class="container-md">
+        <div class="card">
+            <h5 class="card-header">{{book.title}}</h5>
+            <div class="card-body">
+                <h5 class="card-title">ID: {{book.id}}</h5>
+                <div class="container-sm d-flex justify-content-start">
+                    <p id="desc">Description:
+                    <p>
+                    <p class="card-text">{{book.desc}}</p>
+                </div>
+                <div class="container">
+                    <ul class="list-group col-4">
+                        <li class="list-group-item active" aria-current="true">Authors:</li>
+                        {% for author in authors %}
+                        <li class="list-group-item">{{author.first_name}} {{author.last_name}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <br>
+                <br>
+                <div class="container d-flex justify-content-start">
+                    <form action="/add_Author/{{book.id}}" method="post">
+                        {% csrf_token%}
+                        <select name="adding_author" class="form-select-sm ">
+                            <option selected>Open this select menu</option>
+                            {%for author in all_authors%}
+                            <option value="{{author.id}}">{{author.first_name}} {{author.last_name}}</option>
+                            {% endfor %}
+                        </select>
+                        <button type="submit" class="btn blue btn-primary">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
